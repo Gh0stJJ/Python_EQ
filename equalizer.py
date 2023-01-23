@@ -72,6 +72,9 @@ def equalizer(data,samplerate:int,gain_sub_bass:float,gain_bass:float,gain_low_m
 
 
 def store_signal(data,sampe_rate:int,name:string):
+    #Convert the signal to 16 bits (int16) cuz windows multimedia player only supports 16 bits int Dx
+    data = np.int16(data/np.max(np.abs(data)) * 32767)
+
     # Store the signal in a wav file
     wav.write(name, sampe_rate, data)
     
