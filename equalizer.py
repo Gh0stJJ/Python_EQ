@@ -60,7 +60,7 @@ def equalizer(data,samplerate:int,gain_sub_bass:float,gain_bass:float,gain_low_m
     gain_brilliance = 10**(gain_brilliance/20)
 
     # Apply gain
-    sub_bass = sub_bass*gain_sub_bass
+    sub_bass=np.multiply(sub_bass, gain_sub_bass)
     bass = bass*gain_bass
     low_mid = low_mid*gain_low_mid
     upper_mid = upper_mid*gain_upper_mid
