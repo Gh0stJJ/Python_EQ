@@ -7,7 +7,7 @@ import numpy as np
 def main():
     # Read the signal
     sample_rate, samples= wavfile.read('input_songs/Ghost Voices.wav')
-    #samples = np.mean(samples, axis=1)
+    samples = (samples[:,0] + samples[:,1]) / 2 # Stereo to mono
     # Create the UI
     app = Ctrl.Ctrl(samples, sample_rate)
     app.show()

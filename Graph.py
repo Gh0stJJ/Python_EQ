@@ -9,15 +9,16 @@ class Graph:
         self.fourier = np.fft.fft(data)
         self.magnitud=self.compute_freq(data)
 
-    def plotTimeDomain(self):
+    def plotTimeDomain(self,state:str):
         # Plot the signal in the time domain
-        plt.figure()
-        plt.plot(self.data)
-        plt.xlabel("Time [s]")
-        plt.ylabel("Amplitude")
-        plt.title('Time Domain Signal Duration: '+str(len(self.data)/self.sample_rate)+' seconds')
+        plt.figure(figsize=(15,3))
+        plt.plot(self.data, label='Original',color='red') if state == "input" else plt.plot(self.data, label='Original',color='green')
+        plt.title('Señal original')
+        plt.xlabel('Tiempo (s)')
+        plt.ylabel('Amplitud')
+        #plt.legend()
         #save the plot
-        plt.savefig('UI/time_domain.png')
+        plt.savefig("UI/time_domain_"+state+".png")
 
     def get_coef(self,n):
         return self.fourier[n] #Returns Xn 
@@ -40,9 +41,9 @@ class Graph:
         # Plot the signal in the frequency domain
         ks   = np.linspace(0,len(self.magnitud),10)
         ksHz = self.fix_Hz_interp(ks,self.sample_rate,len(self.magnitud))
+        plt.figure()
 
-
-        plt.plot(self.magnitud,color='red')
+        plt.plot(self.magnitud,color='red') if state == "input" else plt.plot(self.magnitud,color='green')
         plt.xticks(ks,ksHz)
         plt.title("Dominio de la frecuencia")
         plt.xlabel("Frecuencia (Hz)")

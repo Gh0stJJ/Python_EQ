@@ -18,7 +18,7 @@
     <property name="geometry">
      <rect>
       <x>350</x>
-      <y>440</y>
+      <y>410</y>
       <width>75</width>
       <height>24</height>
      </rect>
@@ -379,7 +379,6 @@
     </property>
     <property name="font">
      <font>
-      <family>ROG Fonts</family>
       <pointsize>36</pointsize>
      </font>
     </property>
@@ -451,6 +450,99 @@
      <bool>true</bool>
     </property>
    </widget>
+   <widget class="QLabel" name="label_8">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>390</y>
+      <width>49</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>-12 dB</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_12">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>460</y>
+      <width>161</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Submuestrear canción</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_13">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>130</y>
+      <width>49</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>12 dB</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnSampling">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>500</y>
+      <width>75</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Muestrear</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="txtHz">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>500</y>
+      <width>41</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_11">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>490</y>
+      <width>131</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Factor de decimación n:</string>
+    </property>
+   </widget>
    <zorder>line_23</zorder>
    <zorder>OkBtn</zorder>
    <zorder>label</zorder>
@@ -468,6 +560,12 @@
    <zorder>label_9</zorder>
    <zorder>label_10</zorder>
    <zorder>OutputFT</zorder>
+   <zorder>label_8</zorder>
+   <zorder>label_12</zorder>
+   <zorder>label_13</zorder>
+   <zorder>btnSampling</zorder>
+   <zorder>txtHz</zorder>
+   <zorder>label_11</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
