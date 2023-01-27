@@ -75,7 +75,6 @@ def equalizer(data,samplerate:int,gain_sub_bass:float,gain_bass:float,gain_low_m
 #Frequency domain equalizer
 def equalizer_freq(data,samplerate:int,gain_sub_bass:float,gain_bass:float,gain_low_mid:float,gain_upper_mid:float,gain_presence:float,gain_brilliance:float):
     nyquist = samplerate/2 # Nyquist frequency
-
     # Sub Bass Filter (16Hz - 60Hz) set up
     low_sub_bass = int(16/nyquist*len(data))
     high_sub_bass = int(60/nyquist*len(data))
@@ -123,10 +122,8 @@ def equalizer_freq(data,samplerate:int,gain_sub_bass:float,gain_bass:float,gain_
     gains[low_upper_mid:high_upper_mid] = gain_upper_mid
     gains[low_presence:high_presence] = gain_presence
     gains[low_brilliance:high_brilliance] = gain_brilliance
-
     # Apply gain
     data_fft = data_fft*gains
-
     # Inverse FT
     return np.fft.ifft(data_fft)
 
@@ -162,10 +159,8 @@ def decimate(data,samplerate:int,rate:int):
 def anti_aliasing_filter(data,sampling_rate:int,new_sampling_rate:int):
     # Cut-off frequency of the filter
     cutoff_freq = (new_sampling_rate/2) / (sampling_rate/2)
-
     # Low-pass filter
     b, a = butter(5, cutoff_freq, btype='low')
-
     # Apply the filter to the signal
     return lfilter(b, a, data)
 

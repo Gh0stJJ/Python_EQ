@@ -44,7 +44,7 @@ class Ctrl(QtWidgets.QMainWindow,Ui_MainWindow):
         low_mid = self.LowMids.value()
         upper_mid = self.HighMids.value()
         presence = self.Presence.value()
-        brilliance = self.Brilliance.value()
+        brilliance = self.Brillance.value()
     
         #Initilize the sliders in 0
         sub_bass = sub_bass - 50
@@ -70,9 +70,8 @@ class Ctrl(QtWidgets.QMainWindow,Ui_MainWindow):
         # Store the signal
         eq.store_signal(signalEQ, self.sample_rate, "audio_equalized.wav")
 
-        self.graph = Graph(signalEQ, self.sample_rate)
-        self.graph.plotTimeDomain()
-        self.graph.plotFrequencyDomain("output")
+        graphO = Graph(signalEQ, self.sample_rate)
+        graphO.plotFrequencyDomain("output")
         #Initialize the plot in the label
         self.OutputFT.setPixmap(QtGui.QPixmap("UI/frequency_domain_output.png"))
 

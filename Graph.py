@@ -11,9 +11,13 @@ class Graph:
 
     def plotTimeDomain(self,state:str):
         # Plot the signal in the time domain
+        
+        samples_normalized = self.data / np.max(np.abs(self.data))
+        time = np.arange(len(samples_normalized))
+        #plt.ylim(-2**15,2**15)
         plt.figure(figsize=(15,3))
-        plt.plot(self.data, label='Original',color='red') if state == "input" else plt.plot(self.data, label='Original',color='green')
-        plt.title('Señal original')
+        plt.plot(time, samples_normalized, label='Original',color='red') if state == "input" else plt.plot(self.data, label='Original',color='green')
+        plt.title(f'Señal original con fs a {self.sample_rate} Hz') if state == "input" else plt.title(f'Señal muestreada a {self.sample_rate} Hz')
         plt.xlabel('Tiempo (s)')
         plt.ylabel('Amplitud')
         #plt.legend()
@@ -39,11 +43,12 @@ class Graph:
 
     def plotFrequencyDomain(self,state:str):
         # Plot the signal in the frequency domain
+        fixed_magnitud = self.magnitud[50000:]
         ks   = np.linspace(0,len(self.magnitud),10)
         ksHz = self.fix_Hz_interp(ks,self.sample_rate,len(self.magnitud))
         plt.figure()
 
-        plt.plot(self.magnitud,color='red') if state == "input" else plt.plot(self.magnitud,color='green')
+        plt.plot(fixed_magnitud,color='red') if state == "input" else plt.plot(fixed_magnitud,color='green')
         plt.xticks(ks,ksHz)
         plt.title("Dominio de la frecuencia")
         plt.xlabel("Frecuencia (Hz)")

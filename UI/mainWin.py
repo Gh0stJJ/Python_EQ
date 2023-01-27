@@ -196,6 +196,7 @@ class Ui_MainWindow(object):
         self.label_7 = QtWidgets.QLabel(self.centralwidget)
         self.label_7.setGeometry(QtCore.QRect(180, 10, 471, 61))
         font = QtGui.QFont()
+        font.setFamily("ROG Fonts")
         font.setPointSize(36)
         self.label_7.setFont(font)
         self.label_7.setObjectName("label_7")

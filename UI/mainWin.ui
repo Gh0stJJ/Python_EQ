@@ -379,6 +379,7 @@
     </property>
     <property name="font">
      <font>
+      <family>ROG Fonts</family>
       <pointsize>36</pointsize>
      </font>
     </property>
